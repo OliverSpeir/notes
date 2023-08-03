@@ -104,7 +104,7 @@ const noteTitle = note.id.split("/").pop()?.split(".")[0] || "";
     <!-- bottom bar shows until then -->
     <Bottombar related={related}, headingsWithDepth2={headingsWithDepth2} />
 
-    <article class="prose prose-li:marker:text-slate-600 dark:prose-li:marker:text-slate-300 dark:prose-invert mx-auto prose-xl p-4 min-h-screen h-full break-words">
+    <article class="prose prose-li:marker:text-slate-600 dark:prose-li:marker:text-slate-300 dark:prose-invert mx-auto prose-xl p-4 min-h-screen h-full break-words pb-14">
       <!-- this h1 matches the Obsidian schema where the filename displays as an h1 at top of each note -->
       <h1 class="mt-2">{noteTitle}</h1>
       <!-- github flavored markdown done automatically by astro (can be configured differently) -->
