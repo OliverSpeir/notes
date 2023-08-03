@@ -1,0 +1,50 @@
+---
+import type { RelatedType } from "../pages/[...slug].astro";
+import type { MarkdownHeading } from "astro";
+
+type Props = {
+    related: RelatedType,
+    headingsWithDepth2: MarkdownHeading[]
+}
+
+const { related, headingsWithDepth2 } = Astro.props;
+---
+
+<div class="fixed bottom-0 left-0 right-0 z-50 bg-transparent p-2 flex justify-end xl:hidden">
+  {related.length > 0 || headingsWithDepth2.length > 0 ?
+    <div class="dropdown dropdown-top dropdown-end">
+      <label tabindex="0" class="btn m-1 bg-slate-300 border-slate-400 hover:bg-slate-400 hover:border-slate-500 dark:bg-slate-700 dark:border-slate-800">Menu</label>
+      <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-slate-300 dark:bg-slate-700 rounded-box w-52 break-words min-w-0 prose dark:prose-invert">
+        {related.length > 0 ?
+          <h2 class="ml-2 mb-1">Related</h2>
+            <div class="w-48 break-words min-w-0">
+              {
+                related.map((relatedNote) => (
+                <li class="ml-2 -mt-1 -mb-[.35rem] ">
+                  <div class="-mb-[.35rem]">
+                    <span class=" text-2xl -mt-[.15rem] -ml-3">•</span>
+                  <a href={`${Astro.url.origin}/`+`${relatedNote.slug}`} class="text-blue-600 dark:text-blue-400 link">{relatedNote.text}</a> 
+                  </div>
+                </li>
+                ))
+              }
+            </div> : <div></div>
+        }
+        {headingsWithDepth2.length > 0 ?
+          <h2 class={`ml-2 mb-1 ${related.length > 0 ? 'mt-2' : 'mt-0'}`}>Headings</h2>
+            <div class="w-48">
+              {
+                headingsWithDepth2.map((heading) => (
+                  <li class="ml-2 -mt-1 -mb-[.35rem] list-none flex">
+                    <div class="-mb-[.35rem]">
+                    <span class=" text-2xl -mt-[.15rem] -ml-3">•</span>
+                  <a href={`#${heading.slug}`} class="text-blue-600 dark:text-blue-400 break-all min-w-0 link">{heading.text}</a></div>
+                  </li>
+                ))
+              }
+            </div> : <div></div>
+        }
+      </ul>
+    </div> : <div></div>
+  }
+</div>
