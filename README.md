@@ -10,19 +10,21 @@ This Uses Astro and their Content Collections which basically functions as a loc
 
 This uses tailwind typography and github flavored markdown (which is default in astro).
 
-## Structure
-
-Every note that is in the same directory will be linked together as "Related"
-
-For example `/content/notes/example.md` will be linked with `/content/notes/example2.md` as will `/content/notes/example/example.md` and `/content/notes/example/example2.md`
-
-
 ## Deploy your own
 
 I used CloudFlare Pages, but any static site builder will work. I have included the Github Action created by Astro to deploy via GitHub Pages if you want, all you have to do is have the repo deploy via Actions and set the `base:` in `astro.config.mjs`
 
 1. In the `astro.config.mjs` file set the site to your deployed URL
 2. In `/src/components/Footer.astro` change the links from example.com to your socials
+3. Put any .md or .mdx file you want to publish in `/src/content/notes/`
+4. Deploy with your favorite service (Netlify, CF Pages, Vercel, Github Pages, etc...)
+
+
+## Structure
+
+Every note that is in the same directory will be linked together as "Related"
+
+For example `/content/notes/example.md` will be linked with `/content/notes/example2.md` as will `/content/notes/example/example.md` and `/content/notes/example/example2.md`
 
 
 ## How I connected Obsidian
