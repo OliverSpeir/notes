@@ -14,16 +14,16 @@ const { related, headingsWithDepth2 } = Astro.props;
   {related.length > 0 || headingsWithDepth2.length > 0 ?
     <div class="dropdown dropdown-top dropdown-end">
       <label tabindex="0" class="btn m-1 bg-slate-300 border-slate-400 hover:bg-slate-400 hover:border-slate-500 dark:bg-slate-700 dark:border-slate-800">Menu</label>
-      <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-slate-300 dark:bg-slate-700 rounded-box w-52 break-words min-w-0 prose dark:prose-invert">
+      <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-slate-300 dark:bg-slate-700 rounded-box max-w-max break-words min-w-0 prose mx-auto text-black prose-li:marker:text-black prose-headings:text-black prose-a:text-blue-600 hover:prose-a:text-blue-900 dark:text-white dark:prose-li:marker:text-white dark:prose-headings:text-white dark:prose-a:text-blue-400 dark:hover:prose-a:text-blue-600">
         {related.length > 0 ?
           <h2 class="ml-2 mb-1">Related</h2>
-            <div class="w-48 break-words min-w-0">
+            <div class="w-48 pb-2">
               {
                 related.map((relatedNote) => (
                 <li class="ml-2 -mt-1 -mb-[.35rem] ">
                   <div class="-mb-[.35rem]">
-                    <span class=" text-2xl -mt-[.15rem] -ml-3">•</span>
-                  <a href={`${Astro.url.origin}/`+`${relatedNote.slug}`} class="text-blue-600 dark:text-blue-400 link">{relatedNote.text}</a> 
+                    <span class=" text-2xl -mt-[.15rem] ">•</span>
+                  <a href={`${Astro.url.origin}/`+`${relatedNote.slug}`} class="text-blue-600 dark:text-blue-400 break-all min-w-0 link">{relatedNote.text}</a> 
                   </div>
                 </li>
                 ))
@@ -32,12 +32,12 @@ const { related, headingsWithDepth2 } = Astro.props;
         }
         {headingsWithDepth2.length > 0 ?
           <h2 class={`ml-2 mb-1 ${related.length > 0 ? 'mt-2' : 'mt-0'}`}>Headings</h2>
-            <div class="w-48">
+            <div class="w-48 pb-2">
               {
                 headingsWithDepth2.map((heading) => (
                   <li class="ml-2 -mt-1 -mb-[.35rem] list-none flex">
                     <div class="-mb-[.35rem]">
-                    <span class=" text-2xl -mt-[.15rem] -ml-3">•</span>
+                    <span class=" text-2xl -mt-[.15rem] ">•</span>
                   <a href={`#${heading.slug}`} class="text-blue-600 dark:text-blue-400 break-all min-w-0 link">{heading.text}</a></div>
                   </li>
                 ))

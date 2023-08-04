@@ -10,7 +10,7 @@ type Props = {
 const { related, headingsWithDepth2 } = Astro.props;
 ---
 { (related.length > 0 || headingsWithDepth2.length > 0) && (
-<div class="prose dark:prose-invert prose-h2:mt-0 prose-h2:mb-2 dark:prose-h2:text-slate-400 prose-h2:text-gray-700 fixed top-10 right-4 max-w-[10rem] bg-slate-300 dark:bg-gray-900 max-h-screen overflow-auto z-10 hidden xl:block border border-slate-400 rounded-lg p-4">
+<div class="prose mx-auto text-black prose-li:marker:text-black prose-headings:text-black prose-a:text-blue-600 hover:prose-a:text-blue-900 dark:text-white dark:prose-li:marker:text-white dark:prose-headings:text-white dark:prose-a:text-blue-400 dark:hover:prose-a:text-blue-600 prose-h2:mt-0 prose-h2:mb-2 fixed top-10 right-4 max-w-[10rem] bg-slate-300 dark:bg-gray-900 max-h-screen overflow-auto z-10 hidden xl:block border border-slate-400 rounded-lg p-4">
     {related.length > 0 && 
     <div class="-mt-2">
       <h2 class="mt-0">Related</h2>
@@ -28,7 +28,7 @@ const { related, headingsWithDepth2 } = Astro.props;
     <div class="-mt-2 ">
       <h2 class="mt-0">Headings</h2>
       {
-        headingsWithDepth2.map((heading: import("astro").MarkdownHeading) => (
+        headingsWithDepth2.map((heading: MarkdownHeading) => (
           <li class=" -mt-1 -mb-[.35rem] list-none flex">
             <span class="mr-2 text-3xl -mt-[.3rem] -ml-2">•</span>
             <a href={`#${heading.slug}`} class="text-blue-600 dark:text-blue-400 hover:text-blue-900 dark:hover:text-blue-600 break-words min-w-0">{heading.text}</a>
