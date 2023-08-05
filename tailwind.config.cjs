@@ -6,7 +6,16 @@ module.exports = {
 		  screens: {
 			xl: '1150px'
 		  },
+		  typography: {
+			  DEFAULT: {
+				  css: {
+					'pre code span': {
+						backgroundColor: "#1f2937",
+					}
+					},
+				},
+			}
 		},
-	  },
+	},
 	plugins: [require('@tailwindcss/typography'),  require("daisyui")],
 }
