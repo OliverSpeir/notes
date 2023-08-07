@@ -6,6 +6,7 @@ import Bottombar from "../components/Bottombar.astro";
 import Meta from "../components/Meta.astro";
 import type { CollectionEntry } from "astro:content";
 import CopyCodeButtonScript from "../components/CopyCodeButtonScript.astro"
+import "../styles/style.css"
 
 export async function getStaticPaths() {
   const notes = await getCollection("notes");
@@ -72,13 +73,13 @@ const containsCode = checkIfContainsMarkdownCodeBlock(note.body)
     <title>{noteTitle}</title>
   </head>
 
-  <body class="bg-zinc-100 dark:bg-zinc-900"  tabindex="0">
+  <body class="bg-zinc-100 dark:bg-zinc-800"  tabindex="0" >
     <!-- sidebar shows at tailwind xl: -->
     <Sidebar related={related}, headingsWithDepth2={headingsWithDepth2}/>
     <!-- bottom bar shows until xl: -->
     <Bottombar related={related}, headingsWithDepth2={headingsWithDepth2} />
 
-    <article class="prose md:prose-xl mx-auto text-zinc-950 prose-li:my-0  prose-code:bg-zinc-400 prose-code:text-black prose-code:rounded-md prose-li:marker:text-zinc-950 prose-strong:text-zinc-950 prose-headings:text-black prose-a:text-blue-600 hover:prose-a:text-blue-900 dark:prose-strong:text-zinc-100 dark:text-zinc-100 dark:prose-li:marker:text-zinc-100 dark:prose-headings:text-zinc-50 dark:prose-a:text-blue-400 dark:hover:prose-a:text-blue-600 p-4 min-h-screen h-full break-words pb-14">
+    <article class="prose prose-zinc md:prose-lg lg:prose-xl prose-blockquote:bg-zinc-300 dark:prose-blockquote:bg-zinc-900 prose-blockquote:rounded-lg  mx-auto prose-li:my-0 dark:prose-blockquote:text-zinc-100 prose-blockquote:text-zinc-950  text-zinc-950 dark:prose-code:bg-zinc-400 prose-code:bg-zinc-300 prose-pre: prose-code:text-black prose-code:rounded-md prose-li:marker:text-zinc-950 prose-strong:text-zinc-950 prose-headings:text-black prose-a:text-blue-600 hover:prose-a:text-blue-900 dark:prose-strong:text-zinc-100 dark:text-zinc-100 dark:prose-li:marker:text-zinc-100 dark:prose-headings:text-zinc-50 dark:prose-a:text-blue-400 dark:hover:prose-a:text-blue-600 p-4 min-h-screen h-full break-words pb-14">
       <!-- this h1 matches the Obsidian schema where the filename displays as an h1 at top of each note -->
       <h1 class="mt-2">{noteTitle}</h1>
       <!-- github flavored markdown done automatically by astro (can be configured differently) -->

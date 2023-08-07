@@ -1,0 +1,82 @@
+;@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/*  side bar scrollbar */
+
+.sidebar::-webkit-scrollbar-track {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.sidebar::-webkit-scrollbar {
+    background: rgb(161, 161, 170, .1);
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+	background-color: rgb(161 161 170);
+    border-radius: 0.5rem;
+}
+
+/* code block scrollbar */
+
+pre::-webkit-scrollbar {
+    background: rgba(219, 219, 219, 0.2);
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    height: 8px
+}
+
+pre::-webkit-scrollbar-thumb {
+	background-color: rgb(161 161 170);
+    border-radius: 0.5rem;
+}
+
+
+/* bottombar scroll bar */ 
+
+
+.bottombar::-webkit-scrollbar {
+    width: 5px;
+}
+
+.bottombar::-webkit-scrollbar-track {
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        transparent 1%, 
+        rgb(161, 161, 170, .2) 1%, 
+        rgb(161, 161, 170, .2) 99%, 
+        transparent 99%,
+        transparent 100%
+    );
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+
+.bottombar::-webkit-scrollbar-thumb {
+    background-color: rgb(161, 161, 170);
+    border-radius: 0.5rem;
+}
+
+/*  Code block background */
+
+@media (prefers-color-scheme: dark) {
+pre {
+    background-color: rgb(24 24 27) !important;
+}
+pre code span {
+    background-color: rgb(24 24 27)
+}
+}
+
+@media (prefers-color-scheme: light) {
+    pre code span {
+        background-color: #1f2937
+    } 
+}

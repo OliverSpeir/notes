@@ -9,9 +9,6 @@ module.exports = {
 		  typography: {
 			  DEFAULT: {
 				  css: {
-					'pre code span': {
-						backgroundColor: "#1f2937",
-					},
 					'a.data-footnote-backref': {
 						textDecoration: 'none',
 						'&:hover': {
