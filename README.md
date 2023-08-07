@@ -34,7 +34,7 @@ Every note that is in the same directory will be linked together as "Related"
 
 - For example `/content/notes/example.md` will be linked with `/content/notes/example2.md` as will `/content/notes/example/example.md` and `/content/notes/example/example2.md`
 
-Every <h2> or `##` with markdown will be considered a `Heading` and get listed in the menu, no other subheadings will be included in the headings
+Every `<h2>` or `##` with markdown will be considered a `Heading` and get listed in the menu, no other subheadings will be included in the headings
 
 ## How I connected Obsidian
 
