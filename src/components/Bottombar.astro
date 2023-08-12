@@ -32,7 +32,7 @@ const { related, headingsWithDepth2 } = Astro.props;
         </div> : <div></div>
     }
     {headingsWithDepth2.length > 0 ?
-        <h2 class={`ml-2 mb-1 ${related.length > 0 ? 'mt-2' : 'mt-0'}`}>Headings</h2>
+        <h2 class={`ml-2 mb-1 ${related.length > 0 ? 'mt-2' : '-mt-4'}`}>Headings</h2>
         <div class="w-48 pb-2">
             {
             headingsWithDepth2.map((heading) => (
