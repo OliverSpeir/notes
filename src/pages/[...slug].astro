@@ -7,6 +7,7 @@ import Meta from "../components/Meta.astro";
 import type { CollectionEntry } from "astro:content";
 import CopyCodeButtonScript from "../components/CopyCodeButtonScript.astro"
 import "../styles/style.css"
+import type { MarkdownHeading } from "astro";
 
 export async function getStaticPaths() {
   const notes = await getCollection("notes");
@@ -61,6 +62,21 @@ const checkIfContainsMarkdownCodeBlock = (noteBody: CollectionEntry<"notes">['bo
 const notes = await getCollection("notes");
 const related = findRelatedNotes(note, notes);
 const headingsWithDepth2 = headings.filter((heading) => heading.depth === 2);
+function removeSectionFromText(headings: MarkdownHeading[]) {
+  return headings.map(item => {
+    const index = item.text.indexOf("Section"); // Find the index of "Section"
+
+    if (index !== -1) {
+      return {
+        ...item,
+        text: item.text.slice(0, index).trim() // Remove everything after and including "Section"
+      };
+    }
+
+    return item; // Return item unchanged if "Section" not found
+  });
+}
+const updatedHeadings = removeSectionFromText(headingsWithDepth2);
 const noteTitle = note.id.split("/").pop()?.split(".")[0] || "";
 const containsCode = checkIfContainsMarkdownCodeBlock(note.body)
 
@@ -75,9 +91,9 @@ const containsCode = checkIfContainsMarkdownCodeBlock(note.body)
 
   <body class="bg-zinc-100 dark:bg-zinc-800"  tabindex="0" >
     <!-- sidebar shows at tailwind xl: -->
-    <Sidebar related={related}, headingsWithDepth2={headingsWithDepth2}/>
+    <Sidebar related={related}, headingsWithDepth2={updatedHeadings}/>
     <!-- bottom bar shows until xl: -->
-    <Bottombar related={related}, headingsWithDepth2={headingsWithDepth2} />
+    <Bottombar related={related}, headingsWithDepth2={updatedHeadings} />
 
     <article class="prose prose-zinc md:prose-lg lg:prose-xl prose-blockquote:bg-zinc-300 dark:prose-blockquote:bg-zinc-900 prose-blockquote:rounded-lg  mx-auto prose-li:my-0 dark:prose-blockquote:text-zinc-100 prose-blockquote:text-zinc-950  text-zinc-950 dark:prose-code:bg-zinc-400 prose-code:bg-zinc-300 prose-pre: prose-code:text-black prose-code:rounded-md prose-li:marker:text-zinc-950 prose-strong:text-zinc-950 prose-headings:text-black prose-a:text-blue-600 hover:prose-a:text-blue-900 dark:prose-strong:text-zinc-100 dark:text-zinc-100 dark:prose-li:marker:text-zinc-100 dark:prose-headings:text-zinc-50 dark:prose-a:text-blue-400 dark:hover:prose-a:text-blue-600 p-4 min-h-screen h-full break-words pb-14">
       <!-- this h1 matches the Obsidian schema where the filename displays as an h1 at top of each note -->

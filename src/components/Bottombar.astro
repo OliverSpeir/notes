@@ -13,7 +13,7 @@ const { related, headingsWithDepth2 } = Astro.props;
 <div class="fixed bottom-0 left-0 right-0 z-50 bg-transparent p-2 flex justify-end xl:hidden">
   {related.length > 0 || headingsWithDepth2.length > 0 ?
     <button class="dropdown dropdown-top dropdown-end text-left" aria-label="Menu Button">
-      <label tabindex="0" class="btn m-1 bg-zinc-300 border-zinc-400 hover:bg-zinc-400 hover:border-zinc-500 dark:bg-zinc-700 dark:border-zinc-800 ">Menu</label>
+      <label tabindex="0" class="btn m-1 bg-zinc-100 border-zinc-400 hover:bg-zinc-400 hover:border-zinc-500 dark:bg-zinc-700 dark:border-zinc-800 ">Menu</label>
       <ul tabindex="0" class="bottombar overflow-y-auto overflow-x-hidden pt-10  dropdown-content z-[1] menu p-2 shadow bg-zinc-300 dark:bg-zinc-700 rounded-box max-w-max break-words min-w-0 prose mx-auto text-black prose-li:marker:text-black prose-headings:text-black prose-a:text-blue-600 hover:prose-a:text-blue-900 dark:text-zinc-100 dark:prose-li:marker:text-zinc-100 dark:prose-headings:text-zinc-100 dark:prose-a:text-blue-400 dark:hover:prose-a:text-blue-600">
       <div class="max-h-52">
     {related.length > 0 ?
@@ -32,7 +32,7 @@ const { related, headingsWithDepth2 } = Astro.props;
         </div> : <div></div>
     }
     {headingsWithDepth2.length > 0 ?
-        <h2 class={`ml-2 mb-1 ${related.length > 0 ? 'mt-2' : '-mt-4'}`}>Headings</h2>
+        <h2 class={`ml-2 mb-1 ${related.length > 0 ? 'mt-2' : '-mt-4'}`}>Contents</h2>
         <div class="w-48 pb-2">
             {
             headingsWithDepth2.map((heading) => (

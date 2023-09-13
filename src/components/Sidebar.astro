@@ -10,7 +10,7 @@ type Props = {
 const { related, headingsWithDepth2 } = Astro.props;
 ---
 { (related.length > 0 || headingsWithDepth2.length > 0) && (
-<div class="sidebar prose mx-auto max-h-80 overflow-y-auto border border-zinc-400 text-black prose-li:marker:text-black prose-headings:text-black prose-a:text-blue-600 hover:prose-a:text-blue-900 dark:text-white dark:prose-li:marker:text-white dark:prose-headings:text-white dark:prose-a:text-blue-400 dark:hover:prose-a:text-blue-600 prose-h2:mt-0 prose-h2:mb-2 fixed top-10 right-4 max-w-[10rem] bg-zinc-100 dark:bg-zinc-800 z-10 hidden xl:block rounded-lg p-4">
+<div class="maxwidth sidebar prose mx-auto max-h-80 overflow-y-auto border border-zinc-400 text-black prose-li:marker:text-black prose-headings:text-black prose-a:text-blue-600 hover:prose-a:text-blue-900 dark:text-white dark:prose-li:marker:text-white dark:prose-headings:text-white dark:prose-a:text-blue-400 dark:hover:prose-a:text-blue-600 prose-h2:mt-0 prose-h2:mb-2 fixed top-10 right-4 max-w-[10rem] bg-zinc-100 dark:bg-zinc-800 z-10 hidden xl:block rounded-lg p-4">
   {related.length > 0 && 
     <div class="-mt-2">
       <h2 class="mt-0">Related</h2>
