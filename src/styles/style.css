@@ -1,6 +1,14 @@
-;@tailwind base;
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+   /* link icons */
+@layer components {
+    article.prose *:is(h1, h2, h3, h4, h5, h6) {
+        @apply flex items-center gap-2;
+    }
+}
 
 
 /*  side bar scrollbar */
@@ -77,20 +85,12 @@ pre code span {
 
 @media (prefers-color-scheme: light) {
     pre code span {
-        background-color: #1f2937
+        background-color: rgb(43,52,64)
     } 
 }
 
 
-/* heading link icons */
-
-@layer components {
-    article.prose *:is(h1, h2, h3, h4, h5, h6) {
-        @apply flex items-center gap-2;
-    }
-}
-
-/* max-width was getting skipped by critters somehow */
+/*  max width with critters */
 
 .maxwidth {
     max-width: 10rem;

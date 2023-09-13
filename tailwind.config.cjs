@@ -15,19 +15,19 @@ module.exports = {
 						  textDecoration: 'none',
 						},
 					},
-					'ul.contains-task-list': {
-						listStyleType: 'none',
-						marginLeft: "-2.45rem"
-					  },
 					  'ul.contains-task-list li.task-list-item input[type="checkbox"]': {
 						marginRight: "0.8rem",
 						width: "1.25rem",
 						height: "1rem",
+						marginBottom: "0rem !important",
+						marginTop: "0rem !important"
 					  },
 					  'ol.contains-task-list li.task-list-item input[type="checkbox"]': {
 						marginRight: "0.8rem",
 						width: "1.25rem",
 						height: "1rem",
+						marginBottom: "0rem !important",
+						marginTop: "0rem !important"
 					  },
 					},
 				},
